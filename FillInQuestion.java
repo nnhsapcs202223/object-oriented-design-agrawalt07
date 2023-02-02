@@ -40,14 +40,40 @@ public class FillInQuestion extends Question
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     *This method overrides the setText method in the setText method in the Question class. 
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     *Sets the question text and answer
+     *
+     * @param  questionText the text of the question, including the answer
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-
+    
+    /*
+     * Use the @Override annotation when overriding a method to signal to the compiler
+     *      to verify that you are in fact overriding and not overloading by mistake
+     */
+    @Override
+    public void setText(String questionText){
+        Scanner parser = new Scanner(questionText);
+        parser.useDelimiter("_");
+        String question = parser.next();
+        String answer = parser.next();
+        question += "______" + parser.next();
+        
+        super.setText(question);
+        
+        
+        /*
+         * We should use the "this" reserved word to call the setAnswer method. If the 
+         *      subclass doesn't override the setAnswer method, the superclass's method 
+         *      will be called. 
+         *      
+         * We don't want to use the "super" reserved word in this case, because if we
+         *      later override setAnswer, the overriden method would not be called. 
+         */
+        this.setAnswer(answer);
     }
+  /*
+   * Use the "super" reserved word to call the setText method as defined in 
+   *        the superclass (e.g., Question)
+   */
 }
