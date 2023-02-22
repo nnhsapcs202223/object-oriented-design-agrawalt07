@@ -15,7 +15,7 @@ public class TriangleComponent extends JComponent
     private static final int MAX_POINTS = 3;
     private int clicks = 0; 
     private int[] click1; 
-    private int[]click2; 
+    private int[] click2; 
     private int[] click3; 
     public TriangleComponent()
     {
@@ -34,7 +34,8 @@ public class TriangleComponent extends JComponent
         Ellipse2D circ = new Ellipse2D.Double(click1[(0)], click1[(1)], 5,5);
         g2.setColor(Color.black); 
 
-        g2.draw(circ); }
+        g2.draw(circ);
+    }
 
         if(clicks == 2){
             g2.drawLine(click1[(0)], click1[(1)], click2[(0)], click2[(1)]);
@@ -44,7 +45,7 @@ public class TriangleComponent extends JComponent
             g2.drawLine(click2[(0)], click2[(1)], click3[(0)], click3[(1)]);
             g2.drawLine(click1[(0)], click1[(1)], click3[(0)], click3[(1)]);
 
-            clicks =-1;
+            clicks = -1;
 
         }
     }
